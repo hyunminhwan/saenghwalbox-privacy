@@ -1,83 +1,318 @@
-# 생활박스 개인정보처리방침 및 데이터 삭제 안내
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta name="description" content="환율·대출·연봉 계산부터 메모·QR·영문주소까지, 일상에서 자주 쓰는 도구 43가지를 하나로. 로그인 없이 무료로 사용하세요." />
+<title>생활박스 — 일상 도구 43가지를 하나로</title>
 
-최종 수정일: 2026년 7월 15일
+<!--
+  ▼ AdFit 사이트 소유확인 태그를 여기에 붙여넣으세요.
+     (AdFit 콘솔 → 매체 관리 → 소유확인에서 제공하는 <meta> 태그)
+     예) <meta name="adfit-site-verification" content="xxxxxxxx" />
+-->
 
-생활박스(이하 "앱")는 이용자의 개인정보를 소중히 여기며 관련 법령을 준수합니다.
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>" />
+<style>
+  :root {
+    --bg: #fbfcfe;
+    --surface: #ffffff;
+    --ink: #1a2233;
+    --muted: #667085;
+    --line: #e6e9f0;
+    --accent: #4c6ef5;
+    --accent-soft: #eef2ff;
+    --radius: 16px;
+    --maxw: 840px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Malgun Gothic", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
-## 1. 수집하는 개인정보
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 64px 20px 44px;
+    background: linear-gradient(180deg, var(--accent-soft), var(--bg));
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .logo { font-size: 52px; line-height: 1; }
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin: 14px 0 8px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .hero .tag { font-size: clamp(1rem, 2.6vw, 1.15rem); color: var(--muted); margin: 0 0 18px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .badge {
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    background: var(--surface); border: 1px solid #d5ddfb;
+    padding: 6px 14px; border-radius: 999px;
+  }
 
-- **로그인하지 않고 사용하는 경우**: 어떤 개인정보도 수집하지 않으며, 모든 데이터는 이용자의 기기 내에만 저장됩니다.
-- **카카오 계정으로 로그인하는 경우**: 카카오 회원번호, 닉네임을 수집합니다. (계정 식별 및 데이터 동기화 목적)
-  - 카카오 이메일·전화번호 등은 수집하지 않습니다.
+  /* ── Sections ── */
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  h2 {
+    font-size: 1.4rem; margin: 0 0 6px; letter-spacing: -0.01em;
+    scroll-margin-top: 20px;
+  }
+  .section-sub { color: var(--muted); margin: 0 0 24px; font-size: 15px; }
+  h3 { font-size: 1.05rem; margin: 26px 0 10px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 6px 0; }
+  strong { font-weight: 700; }
 
-로그인은 선택 사항이며, 로그인 없이도 앱의 모든 기능을 사용할 수 있습니다.
+  /* ── Tool categories ── */
+  .cat { margin-bottom: 26px; }
+  .cat-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 1rem; font-weight: 700; margin: 0 0 12px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 13.5px; font-weight: 500;
+    background: var(--surface); border: 1px solid var(--line);
+    color: var(--ink); padding: 7px 13px; border-radius: 10px;
+  }
 
-## 2. 저장 및 동기화되는 데이터
+  /* ── Privacy policy block ── */
+  .policy h2 .num { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 10px; }
+  .policy h2 { padding-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 14.5px; }
+  .table-scroll { overflow-x: auto; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--accent-soft); font-weight: 700; }
+  .callout {
+    background: var(--accent-soft); border: 1px solid #d5ddfb;
+    border-radius: var(--radius); padding: 18px 20px; margin: 16px 0;
+  }
+  .callout h3 { margin-top: 0; }
+  .callout .step { display: block; font-weight: 700; color: var(--accent); font-size: 13px; margin-bottom: 2px; }
+  .updated { color: var(--muted); font-size: 14px; }
 
-로그인 시, 이용자가 입력한 데이터가 기기 간 동기화를 위해 클라우드(Supabase)에 저장됩니다.
+  footer {
+    text-align: center; padding: 32px 20px 56px; color: var(--muted); font-size: 14px;
+  }
+  footer strong { color: var(--ink); }
 
-- **비밀번호 보관함, 계좌번호, 생리주기(건강 정보)** 는 서버에 저장되기 전 **AES-256 방식으로 암호화**됩니다.
-- 그 외 데이터(메모, 일기, 지출·계산 내역, 일정 등)는 동기화를 위해 저장됩니다.
-- 로그아웃 상태에서는 모든 데이터가 기기 내에만 저장되며 외부로 전송되지 않습니다.
+  @media (max-width: 480px) {
+    body { font-size: 15.5px; }
+    section { padding: 36px 0; }
+  }
+</style>
+</head>
+<body>
 
-## 3. 민감정보 처리
+  <header class="hero">
+    <div class="logo">📦</div>
+    <h1>생활박스</h1>
+    <p class="tag">일상에서 자주 쓰는 도구 43가지를 하나로</p>
+    <div class="badges">
+      <span class="badge">로그인 없이 사용</span>
+      <span class="badge">무료</span>
+      <span class="badge">광고 최소화</span>
+    </div>
+  </header>
 
-생리주기 등 건강 관련 정보는 민감정보로 분류하여 암호화 저장하며, 광고·분석 목적으로 이용하지 않고 회원 탈퇴 시 지체 없이 파기합니다.
+  <div class="wrap">
 
-## 4. 개인정보 처리위탁
+    <section id="intro">
+      <h2>생활박스란?</h2>
+      <p class="section-sub">계산·금융·생활·편의 도구를 한 앱에 모았습니다.</p>
+      <p>
+        환율·대출·연봉 계산부터 메모·일기·QR 스캐너·영문주소 변환까지, 매일 필요한 도구
+        <strong>43가지</strong>를 하나의 앱에 담았습니다. 앱은 <strong>로그인 없이 바로</strong>
+        사용할 수 있고, 데이터는 기본적으로 내 기기에 저장됩니다. 원하면 카카오 로그인으로
+        기기 간 백업·동기화를 켤 수 있으며, 비밀번호·계좌 등 민감한 정보는 암호화되어
+        안전하게 보관됩니다.
+      </p>
+    </section>
 
-이용자 데이터는 **국내(서울) 리전 서버**에 저장됩니다.
+    <section id="features">
+      <h2>주요 기능</h2>
+      <p class="section-sub">카테고리별 도구 목록</p>
 
-| 수탁자 | 위탁 업무 | 데이터 저장 위치 |
-|---|---|---|
-| 카카오(주) | 소셜 로그인 인증 | 국내 |
-| Supabase Inc. | 데이터 저장 및 계정 인증 | 국내 (서울 리전) |
+      <div class="cat">
+        <div class="cat-title"><span class="dot" style="background:#fcc419"></span>금융 계산</div>
+        <div class="chips">
+          <span class="chip">환율 계산</span>
+          <span class="chip">연봉 실수령액</span>
+          <span class="chip">대출 계산기</span>
+          <span class="chip">전세대출 계산기</span>
+          <span class="chip">적금 계산기</span>
+          <span class="chip">ISA 계산기</span>
+          <span class="chip">퇴직금 계산기</span>
+          <span class="chip">연차 계산기</span>
+          <span class="chip">청약 가점 계산기</span>
+          <span class="chip">부동산 취득세 계산기</span>
+          <span class="chip">부가세 계산기</span>
+          <span class="chip">고정지출 관리</span>
+        </div>
+      </div>
 
-환율 조회 시 한국수출입은행 공개 API를 사용하며, 이 과정에서 개인정보는 전송되지 않습니다.
+      <div class="cat">
+        <div class="cat-title"><span class="dot" style="background:#4c6ef5"></span>계산 도구</div>
+        <div class="chips">
+          <span class="chip">계산기</span>
+          <span class="chip">아파트 평형 변환</span>
+          <span class="chip">단위 변환</span>
+          <span class="chip">신발 사이즈 변환</span>
+          <span class="chip">할인가 계산기</span>
+          <span class="chip">정가 계산기</span>
+          <span class="chip">퍼센트 계산기</span>
+          <span class="chip">BMI 계산기</span>
+          <span class="chip">더치페이 계산기</span>
+          <span class="chip">나이 계산기</span>
+          <span class="chip">만나이 계산기</span>
+          <span class="chip">날짜 계산기</span>
+          <span class="chip">로또 번호 생성기</span>
+        </div>
+      </div>
 
-## 5. 안전성 확보 조치
+      <div class="cat">
+        <div class="cat-title"><span class="dot" style="background:#20c997"></span>생활 도구</div>
+        <div class="chips">
+          <span class="chip">메모장</span>
+          <span class="chip">일기장</span>
+          <span class="chip">체크리스트</span>
+          <span class="chip">D-Day 카운터</span>
+          <span class="chip">타이머</span>
+          <span class="chip">일정 관리</span>
+          <span class="chip">자동차 유지비 관리</span>
+          <span class="chip">계좌번호 모음</span>
+          <span class="chip">생리주기</span>
+          <span class="chip">여행 체크리스트</span>
+          <span class="chip">랜덤 뽑기</span>
+        </div>
+      </div>
 
-- 비밀번호·계좌번호·건강 정보 등 민감 데이터는 저장 시 암호화합니다.
-- 서버와의 모든 통신은 HTTPS로 암호화하여 전송합니다.
-- 이용자별 데이터는 본인만 접근할 수 있도록 접근 권한을 제한합니다.
+      <div class="cat">
+        <div class="cat-title"><span class="dot" style="background:#f76707"></span>편의 도구</div>
+        <div class="chips">
+          <span class="chip">QR 스캐너</span>
+          <span class="chip">와이파이 QR</span>
+          <span class="chip">영문주소 변환</span>
+          <span class="chip">비밀번호 생성기</span>
+          <span class="chip">소음 측정기</span>
+          <span class="chip">화면 자</span>
+          <span class="chip">수평계</span>
+        </div>
+      </div>
 
-## 6. 보유 기간 및 파기
+      <div class="cat">
+        <div class="cat-title"><span class="dot" style="background:#845ef7"></span>계정 · 백업 (선택)</div>
+        <div class="chips">
+          <span class="chip">카카오 로그인 동기화</span>
+          <span class="chip">암호화 백업 (비밀번호·계좌·건강)</span>
+          <span class="chip">회원 탈퇴 (전체 삭제)</span>
+        </div>
+      </div>
+    </section>
 
-수집·저장된 정보는 회원 탈퇴 시 즉시 파기되며 별도로 보관하지 않습니다.
+    <!-- ══════════ 개인정보처리방침 ══════════ -->
+    <section id="privacy" class="policy">
+      <h2>개인정보처리방침</h2>
+      <p class="updated">최종 수정일: 2026년 7월 16일</p>
+      <p>생활박스(이하 “앱”)는 이용자의 개인정보를 소중히 여기며 관련 법령을 준수합니다.</p>
 
-## 7. 광고 및 분석
+      <h2><span class="num">1</span>수집하는 개인정보</h2>
+      <ul>
+        <li><strong>로그인하지 않고 사용하는 경우</strong>: 어떤 개인정보도 수집하지 않으며, 모든 데이터는 이용자의 기기 내에만 저장됩니다.</li>
+        <li><strong>카카오 계정으로 로그인하는 경우</strong>: 카카오 회원번호, 닉네임을 수집합니다. (계정 식별 및 데이터 동기화 목적) 카카오 이메일·전화번호 등은 수집하지 않습니다.</li>
+      </ul>
+      <p>로그인은 선택 사항이며, 로그인 없이도 앱의 모든 기능을 사용할 수 있습니다.</p>
 
-본 앱은 카카오 애드핏(AdFit) 배너 광고를 포함합니다. 
-이 광고는 문맥 기반(비추적)으로 제공되며, 사용자를 앱 간 추적하지 않습니다. 
-별도의 사용자 행동 분석 도구는 사용하지 않으며, 수집한 정보를 제3자에게 판매하거나 맞춤광고 목적으로 제공하지 않습니다.
+      <h2><span class="num">2</span>저장 및 동기화되는 데이터</h2>
+      <p>로그인 시, 이용자가 입력한 데이터가 기기 간 동기화를 위해 클라우드(Supabase)에 저장됩니다.</p>
+      <ul>
+        <li><strong>비밀번호 보관함, 계좌번호, 생리주기(건강 정보)</strong>는 서버에 저장되기 전 <strong>AES-256 방식으로 암호화</strong>됩니다.</li>
+        <li>그 외 데이터(메모, 일기, 지출·계산 내역, 일정 등)는 동기화를 위해 저장됩니다.</li>
+        <li>로그아웃 상태에서는 모든 데이터가 기기 내에만 저장되며 외부로 전송되지 않습니다.</li>
+      </ul>
 
-## 8. 문의
+      <h2><span class="num">3</span>민감정보 처리</h2>
+      <p>생리주기 등 건강 관련 정보는 민감정보로 분류하여 암호화 저장하며, 광고·분석 목적으로 이용하지 않고 회원 탈퇴 시 지체 없이 파기합니다.</p>
 
-개인정보 처리에 관한 문의: **hmin3319@gmail.com**
+      <h2><span class="num">4</span>개인정보 처리위탁</h2>
+      <p>이용자 데이터는 <strong>국내(서울) 리전 서버</strong>에 저장됩니다.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>수탁자</th><th>위탁 업무</th><th>데이터 저장 위치</th></tr></thead>
+          <tbody>
+            <tr><td>카카오(주)</td><td>소셜 로그인 인증</td><td>국내</td></tr>
+            <tr><td>Supabase Inc.</td><td>데이터 저장 및 계정 인증</td><td>국내 (서울 리전)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>환율 조회 시 한국수출입은행 공개 API를 사용하며, 이 과정에서 개인정보는 전송되지 않습니다.</p>
 
-본 방침이 변경될 경우 본 페이지를 통해 고지합니다.
+      <h2><span class="num">5</span>안전성 확보 조치</h2>
+      <ul>
+        <li>비밀번호·계좌번호·건강 정보 등 민감 데이터는 저장 시 암호화합니다.</li>
+        <li>서버와의 모든 통신은 HTTPS로 암호화하여 전송합니다.</li>
+        <li>이용자별 데이터는 본인만 접근할 수 있도록 접근 권한을 제한합니다.</li>
+      </ul>
 
----
+      <h2><span class="num">6</span>보유 기간 및 파기</h2>
+      <p>수집·저장된 정보는 회원 탈퇴 시 즉시 파기되며 별도로 보관하지 않습니다.</p>
 
-## 데이터 삭제 안내
+      <h2><span class="num">7</span>광고 및 분석</h2>
+      <p>본 앱은 카카오 애드핏(AdFit) 배너 광고를 포함합니다. 이 광고는 문맥 기반(비추적)으로 제공되며, 사용자를 앱 간 추적하지 않습니다. 별도의 사용자 행동 분석 도구는 사용하지 않으며, 수집한 정보를 제3자에게 판매하거나 맞춤광고 목적으로 제공하지 않습니다.</p>
 
-생활박스는 언제든 계정과 저장된 데이터를 삭제할 수 있습니다.
+      <h2><span class="num">8</span>문의</h2>
+      <p>개인정보 처리에 관한 문의: <a href="mailto:hmin3319@gmail.com">hmin3319@gmail.com</a></p>
+      <p>본 방침이 변경될 경우 본 페이지를 통해 고지합니다.</p>
+    </section>
 
-### ① 앱에서 직접 삭제 (권장)
+    <!-- ══════════ 데이터 삭제 안내 ══════════ -->
+    <section id="delete">
+      <h2>데이터 삭제 안내</h2>
+      <p>생활박스는 언제든 계정과 저장된 데이터를 삭제할 수 있습니다.</p>
 
-앱 실행 → **설정 → 회원 탈퇴** → 계정과 서버에 저장된 모든 데이터가 즉시 삭제됩니다.
+      <div class="callout">
+        <h3>① 앱에서 직접 삭제 (권장)</h3>
+        <p style="margin-bottom:0">앱 실행 → <strong>설정 → 회원 탈퇴</strong> → 계정과 서버에 저장된 모든 데이터가 즉시 삭제됩니다.</p>
+      </div>
 
-### ② 앱 없이 삭제 요청 (앱을 이미 삭제한 경우)
+      <div class="callout">
+        <h3>② 앱 없이 삭제 요청 (앱을 이미 삭제한 경우)</h3>
+        <p>아래 이메일로 요청해 주세요. 확인 후 영업일 기준 7일 이내 삭제해 드립니다.</p>
+        <p><span class="step">이메일</span><a href="mailto:hmin3319@gmail.com">hmin3319@gmail.com</a></p>
+        <p><span class="step">제목</span>[생활박스] 데이터 삭제 요청</p>
+        <p style="margin-bottom:0"><span class="step">본문</span>가입에 사용한 카카오 닉네임</p>
+      </div>
 
-아래 이메일로 요청해 주세요. 확인 후 영업일 기준 7일 이내 삭제해 드립니다.
+      <h3>삭제되는 데이터</h3>
+      <ul>
+        <li>계정 정보 (카카오 회원번호, 닉네임)</li>
+        <li>서버에 저장된 모든 데이터 (비밀번호·계좌번호·생리주기·메모·일정 등)</li>
+      </ul>
+      <p>모든 데이터는 즉시 영구 삭제되며 별도로 보관하지 않습니다.</p>
+    </section>
 
-- 이메일: **hmin3319@gmail.com**
-- 제목: [생활박스] 데이터 삭제 요청
-- 본문: 가입에 사용한 카카오 닉네임
+  </div>
 
-### 삭제되는 데이터
+  <footer>
+    <p><strong>생활박스</strong> · 문의: <a href="mailto:hmin3319@gmail.com">hmin3319@gmail.com</a></p>
+    <p>© 2026 생활박스. All rights reserved.</p>
+  </footer>
 
-- 계정 정보 (카카오 회원번호, 닉네임)
-- 서버에 저장된 모든 데이터 (비밀번호·계좌번호·생리주기·메모·일정 등)
-
-모든 데이터는 즉시 영구 삭제되며 별도로 보관하지 않습니다.
+</body>
+</html>
